@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PACIENTE</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css">
+    <link rel="stylesheet" href="/front-end/css/style.css">
+</head>
+
+<body class="body1">
+    <div class="container">
+        <h1 class="text-center my-4"><b>Gestion de info - Pacientes</b></h1>
+
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <h2>Registro Pacientes</h2>
+                <button type="button" class="btn btn-secondary mb-3" data-toggle="modal"
+                    data-target="#pacienteModal">Registrar paciente</button>
+                <a class="btn btn-secondary mb-3" href="./inicio.html">Inicio</a>
+                <table id="pacienteTable" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Documento de Identidad</th>
+                            <th>Primer Nombre</th>
+                            <th>Segundo Nombre</th>
+                            <th>Primer Apellido</th>
+                            <th>Segundo Apellido</th>
+                            <th>Celular</th>
+                            <th>Correo</th>
+                            <th>Nombre Persona Contacto</th>
+                            <th>Telefono Persona Contacto</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aquí se mostrarán los pacientes registrados -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="pacienteModal" tabindex="-1" role="dialog" aria-labelledby="pacienteModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="pacienteModalLabel">Registrar Nuevo Paciente</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="pacienteForm">
+                        <div class="form-group">
+                            <label for="documento_identidad">Documento de Identidad:</label>
+                            <input type="text" name="documentoIdentidad" id="documentoIdentidad" class="form-control"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="primer_nombre">Primer Nombre:</label>
+                            <input type="text" name="primerNombre" id="primerNombre" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="segundo_nombre">Segundo Nombre:</label>
+                            <input type="text" name="segundoNombre" id="segundoNombre" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="primer_apellido">Primer Apellido:</label>
+                            <input type="text" name="primerApellido" id="primerApellido" class="form-control"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="segundo_apellido">Segundo Apellido:</label>
+                            <input type="text" name="segundoApellido" id="segundoApellido" class="form-control"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="celular">Celular:</label>
+                            <input type="text" name="celular" id="celular" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="correo">Correo:</label>
+                            <input type="email" name="correo" id="correo" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre_persona_contacto">Nombre Persona Contacto:</label>
+                            <input type="text" name="nombrePersonaContacto" id="nombrePersonaContacto"
+                                class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono_persona_contacto">Telefono Persona Contacto:</label>
+                            <input type="text" name="telefonoPersonaContacto" id="telefonoPersonaContacto"
+                                class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="crearPaciente">Registrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./js/paciente.js"></script>
+</body>
+
+</html>

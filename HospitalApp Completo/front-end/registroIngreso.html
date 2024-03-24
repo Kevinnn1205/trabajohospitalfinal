@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INGRESO</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+
+<body class="body1">
+
+    </head>
+
+    <body>
+        <div class="container">
+            <h1 class="text-center my-4"><b>Listado de ingresos</b></h1>
+
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <h2>Registro Ingresos</h2>
+                    <button type="button" class="btn btn-secondary mb-3" data-toggle="modal"
+                        data-target="#crearIngresoModal">Registrar ingresos</button>
+                    <button type="button" class="btn btn-secondary mb-3" data-toggle="modal"
+                        data-target="#crearHabitacionModal">Crear habitación</button>
+                    <button type="button" class="btn btn-secondary mb-3" data-toggle="modal"
+                        data-target="#crearCamaModal">Crear cama</button>
+                    <a class="btn btn-secondary mb-3" href="/front-end/inicio.html">Inicio </a>
+
+                    <table id="ingresoTable" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Paciente</th>
+                                <th>Medico</th>
+                                <th>Habitacion</th>
+                                <th>Cama</th>
+                                <th>Fecha Ingreso</th>
+                                <th>Fecha Salida</th>
+                                <th>Estado Ingreso</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Aquí se mostrarán los ingresos de los pacientes -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Crear ingresos-->
+        <div class="modal fade" id="crearIngresoModal" tabindex="-1" role="dialog"
+            aria-labelledby="crearIngresoModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="crearIngresoModalLabel">Registrar Nuevo Paciente</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="ingresoForm">
+                            <div class="form-group">
+                                <label for="paciente">Paciente:</label>
+                                <select name="idPaciente" id="idPaciente" class="form-control" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="medico">Medico:</label>
+                                <select name="idMedico" id="idMedico" class="form-control" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="habitacion">Habitacion:</label>
+                                <select name="idHabitacion" id="idHabitacion" class="form-control" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="cama">Cama:</label>
+                                <select name="idCama" id="idCama" class="form-control" required></select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cama">Estado del ingreso:</label>
+                                <select name="estadoIngreso" id="estadoIngreso" class="form-control" required>
+                                    <option value="" selected>Selecciona una opción</option>
+                                    <option value="Ingreso">Ingreso</option>
+                                    <option value="Alta_hospitalaria">Alta hospitalaria</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Registrar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Crear habitacion-->
+        <div class="modal fade" id="crearHabitacionModal" tabindex="-1" role="dialog"
+            aria-labelledby="crearHabitacionModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="crearHabitacionModalLabel">Crear nueva habitación</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="habitacionForm">
+                            <div class="form-group">
+                                <label for="nombreHabitacion">Nombre de la habitación</label>
+                                <input type="text" name="nombreHabitacion" id="nombreHabitacion" class="form-control" required>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Registrar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Crear cama-->
+        <div class="modal fade" id="crearCamaModal" tabindex="-1" role="dialog"
+            aria-labelledby="crearCamaModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="crearCamaModalLabel">Crear nueva cama</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="camaForm">
+                            <div class="form-group">
+                                <label for="nombreCama">Nombre de la cama</label>
+                                <input type="text" name="nombreCama" id="nombreCama" class="form-control" required>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Registrar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="./js/ingreso.js"></script>
+
+    </body>
+
+</html>
